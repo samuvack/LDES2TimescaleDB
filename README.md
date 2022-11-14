@@ -1,5 +1,8 @@
 <img src="https://github.com/samuvack/TimescaleDB/blob/main/images/Timescale.png" alt="Timescale" width="300"/>
 
+<img src="https://github.com/samuvack/TimescaleDB/blob/main/images/scale.png" alt="Timescale" width="100%"/>
+
+
 ## What is TimescaleDB?
 
 TimescaleDB is an open-source database designed to make SQL scalable
