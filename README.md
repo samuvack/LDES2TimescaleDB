@@ -1,6 +1,6 @@
 <img src="https://github.com/samuvack/TimescaleDB/blob/main/images/Timescale.png" alt="Timescale" width="300"/>
 
-<img src="https://github.com/samuvack/TimescaleDB/blob/main/images/scale.png" alt="Timescale" width="100%"/>
+<img src="https://github.com/samuvack/TimescaleDB/blob/main/images/scale.svg" alt="Timescale" width="100%"/>
 
 
 ## What is TimescaleDB?
