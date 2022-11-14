@@ -1,6 +1,12 @@
 <img src="https://github.com/samuvack/TimescaleDB/blob/main/images/Timescale.png" alt="Timescale" width="300"/>
 
-<img src="https://github.com/samuvack/TimescaleDB/blob/main/images/scale.svg" alt="Timescale" width="100%"/>
+### Starting a TimescaleDB instance
+
+```
+$ docker-compose up
+```
+
+
 
 
 ## What is TimescaleDB?
@@ -8,6 +14,13 @@
 TimescaleDB is an open-source database designed to make SQL scalable
 for time-series data. For more information, see
 the [Timescale website](https://www.timescale.com).
+
+
+
+
+<img src="https://github.com/samuvack/TimescaleDB/blob/main/images/scale.svg" alt="Timescale" width="100%"/>
+
+
 
 
 ## What is Prometheus?
@@ -59,9 +72,4 @@ official
 the documentation for that image also applies here, including the
 environment variables one can set, extensibility, etc.
 
-### Starting a TimescaleDB instance
-
-```
-$ docker-compose up
-```
 
