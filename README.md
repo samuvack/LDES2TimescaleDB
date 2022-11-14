@@ -1,4 +1,4 @@
-<img src="http://www.timescale.com/img/timescale-wordmark-blue.svg" alt="Timescale" width="300"/>
+<img src="https://github.com/samuvack/TimescaleDB/blob/main/images/Timescale.png" alt="Timescale" width="300"/>
 
 ## What is TimescaleDB?
 
