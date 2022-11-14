@@ -1,13 +1,10 @@
 <img src="https://github.com/samuvack/TimescaleDB/blob/main/images/Timescale.png" alt="Timescale" width="300"/>
 
-### Starting a TimescaleDB instance
+### Starting a TimescaleDB docker (with promotheus, promscale, etc.)
 
 ```
 $ docker-compose up
 ```
-
-
-
 
 ## What is TimescaleDB?
 
@@ -17,9 +14,7 @@ the [Timescale website](https://www.timescale.com).
 
 
 
-
 <img src="https://github.com/samuvack/TimescaleDB/blob/main/images/scale.svg" alt="Timescale" width="100%"/>
-
 
 
 
