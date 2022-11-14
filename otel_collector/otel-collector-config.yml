@@ -1,0 +1,26 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+      http:
+
+exporters:
+  logging:
+  otlp:
+    endpoint: promscale:9202
+    tls:
+      insecure: true
+
+processors:
+  batch:
+
+service:
+  telemetry:
+    logs:
+      level: "debug"
+
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [otlp, logging]
+      processors: [batch]

@@ -1,0 +1,108 @@
+version: '3'
+volumes:
+  geo-db-data:
+  nifi-database-repository:
+  nifi-flowfile-repository:
+  nifi-content-repository:
+  nifi-provenance-repository:
+  nifi-state:
+  nifi-logs:
+  nifi-nars:
+  nifi-conf:
+
+services:
+  dba:
+    image: dpage/pgadmin4:latest
+    container_name: ldes-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ldes@ldes.be
+      PGADMIN_DEFAULT_PASSWORD: ldes
+    ports:
+      - 8001:80
+    depends_on:
+      - timescaledb
+  
+  timescaledb:
+    image: timescale/timescaledb-ha:pg14-latest
+    ports:
+      - 5432:5432/tcp
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+  
+  prometheus:
+    image: prom/prometheus:latest
+    depends_on:
+      - promscale
+    ports:
+      - 9090:9090/tcp
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+
+  alertmanager:
+    image: prom/alertmanager:latest
+    ports:
+      - 9093:9093/tcp
+
+  promscale:
+    image: timescale/promscale:latest
+    ports:
+      - 9201:9201/tcp
+      - 9202:9202/tcp
+    restart: on-failure
+    depends_on:
+      - timescaledb
+    volumes:
+      - ./promscale/promscale.yml:/prometheus.yml
+      - ./promscale/rules.yml:/rules.yml
+      - ./promscale/alerts.yml:/alerts.yml
+    environment:
+      PROMSCALE_DB_URI: postgres://postgres:password@db:5432/postgres?sslmode=allow
+      PROMSCALE_TRACING_OTLP_SERVER_ADDRESS: ":9202"
+      PROMSCALE_TELEMETRY_TRACE_OTEL_ENDPOINT: "otel-collector:4317"
+      PROMSCALE_TELEMETRY_TRACE_SAMPLING_RATIO: "0.1"
+      PROMSCALE_METRICS_RULES_CONFIG_FILE: /prometheus.yml
+
+  otel-collector:
+    platform: linux/amd64
+    image: "otel/opentelemetry-collector:0.56.0"
+    command: [ "--config=/etc/otel-collector-config.yml" ]
+    volumes:
+      - ./otel_collector/otel-collector-config.yml:/etc/otel-collector-config.yml
+    ports:
+      - "14268:14268" # jaeger http
+
+  jaeger:
+    image: jaegertracing/jaeger-query:1.37.0
+    environment:
+      SPAN_STORAGE_TYPE: grpc-plugin
+    depends_on:
+      - promscale
+    command: [
+      "--grpc-storage.server=promscale:9202",
+    ]
+    ports:
+      - "16686:16686"
+
+  node_exporter:
+    image: quay.io/prometheus/node-exporter
+    ports:
+      - "9100:9100"
+
+
+  nifi:
+    image: ghcr.io/informatievlaanderen/ldes-workbench-nifi:latest
+    container_name: ldes-nifi
+    restart: unless-stopped
+    ports:
+      # HTTPS
+      - 8443:8443/tcp
+    volumes:
+      - ./nifi-extensions:/opt/nifi/nifi-current/extensions
+    environment:
+      - NIFI_UI_PORT=8443
+      - SINGLE_USER_CREDENTIALS_USERNAME=admin
+      - SINGLE_USER_CREDENTIALS_PASSWORD=admin123456789
+      - NIFI_WORKFLOW_LISTEN_PORT=9005
+      - NIFI_JVM_HEAP_INIT=8g
+      - NIFI_JVM_HEAP_MAX=8g
