@@ -1,0 +1,177 @@
+[
+    {
+        "@id": "_:b0",
+        "https://schema.org/value": [
+            {
+                "@value": 9.4
+            }
+        ]
+    },
+    {
+        "@id": "_:b1",
+        "http://def.isotc211.org/iso19103/2005/UnitsOfMeasure#Measure.value": [
+            {
+                "@id": "_:b2"
+            }
+        ]
+    },
+    {
+        "@id": "_:b2",
+        "https://schema.org/value": [
+            {
+                "@value": 820.192918616
+            }
+        ]
+    },
+    {
+        "@id": "_:b3",
+        "http://def.isotc211.org/iso19103/2005/UnitsOfMeasure#Measure.value": [
+            {
+                "@id": "_:b0"
+            }
+        ]
+    },
+    {
+        "@id": "_:b4",
+        "https://schema.org/value": [
+            {
+                "@value": 0.168333333
+            }
+        ]
+    },
+    {
+        "@id": "_:b5",
+        "http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.observedProperty": [
+            {
+                "@id": "https://data.vmm.be/concept/waterkwaliteitparameter/temperatuur"
+            }
+        ],
+        "http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.phenomenonTime": [
+            {
+                "@value": "2022-02-10T11:21:52.000Z",
+                "@type": "http://www.w3.org/2001/XMLSchema#datetime"
+            }
+        ],
+        "http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.result": [
+            {
+                "@id": "_:b3"
+            }
+        ],
+        "@type": [
+            "http://def.isotc211.org/iso19156/2011/Measurement#OM_Measurement"
+        ],
+        "http://www.w3.org/ns/sosa/madeBySensor": [
+            {
+                "@id": "urn:ngsi-v2:cot-imec-be:Device:imec-iow-jHSVTNqkbYMc4stmiE255s"
+            }
+        ]
+    },
+    {
+        "@id": "_:b6",
+        "http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.observedProperty": [
+            {
+                "@id": "https://data.vmm.be/concept/sensor/batterijniveau"
+            }
+        ],
+        "http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.phenomenonTime": [
+            {
+                "@value": "2022-02-10T11:21:52.000Z",
+                "@type": "http://www.w3.org/2001/XMLSchema#datetime"
+            }
+        ],
+        "http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.result": [
+            {
+                "@id": "_:b7"
+            }
+        ],
+        "@type": [
+            "http://def.isotc211.org/iso19156/2011/Measurement#OM_Measurement"
+        ],
+        "http://www.w3.org/ns/sosa/madeBySensor": [
+            {
+                "@id": "urn:ngsi-v2:cot-imec-be:Device:imec-iow-jHSVTNqkbYMc4stmiE255s"
+            }
+        ]
+    },
+    {
+        "@id": "_:b7",
+        "http://def.isotc211.org/iso19103/2005/UnitsOfMeasure#Measure.value": [
+            {
+                "@id": "_:b4"
+            }
+        ]
+    },
+    {
+        "@id": "_:b8",
+        "http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.observedProperty": [
+            {
+                "@id": "https://data.vmm.be/concept/waterkwaliteitparameter/conductiviteit"
+            }
+        ],
+        "http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.phenomenonTime": [
+            {
+                "@value": "2022-02-10T11:21:52.000Z",
+                "@type": "http://www.w3.org/2001/XMLSchema#datetime"
+            }
+        ],
+        "http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.result": [
+            {
+                "@id": "_:b1"
+            }
+        ],
+        "@type": [
+            "http://def.isotc211.org/iso19156/2011/Measurement#OM_Measurement"
+        ],
+        "http://www.w3.org/ns/sosa/madeBySensor": [
+            {
+                "@id": "urn:ngsi-v2:cot-imec-be:Device:imec-iow-jHSVTNqkbYMc4stmiE255s"
+            }
+        ]
+    },
+    {
+        "@id": "http://def.isotc211.org/iso19156/2011/Measurement#OM_Measurement"
+    },
+    {
+        "@id": "https://data.vmm.be/concept/sensor/batterijniveau"
+    },
+    {
+        "@id": "https://data.vmm.be/concept/waterkwaliteitparameter/conductiviteit"
+    },
+    {
+        "@id": "https://data.vmm.be/concept/waterkwaliteitparameter/temperatuur"
+    },
+    {
+        "@id": "https://www.w3.org/TR/vocab-ssn-ext/#sosa:ObservationCollection"
+    },
+    {
+        "@id": "urn:ngsi-v2:cot-imec-be:Device:imec-iow-jHSVTNqkbYMc4stmiE255s"
+    },
+    {
+        "@id": "urn:ngsi-v2:cot-imec-be:WaterQualityObserved:imec-iow-gUni6QxtuCPx6cdSwziazc",
+        "http://def.isotc211.org/iso19156/2011/SamplingFeature#SF_SamplingFeatureCollection.member": [
+            {
+                "@id": "_:b5"
+            },
+            {
+                "@id": "_:b6"
+            },
+            {
+                "@id": "_:b8"
+            }
+        ],
+        "@type": [
+            "https://www.w3.org/TR/vocab-ssn-ext/#sosa:ObservationCollection"
+        ],
+        "http://www.w3.org/ns/prov#generatedAtTime": [
+            {
+                "@value": "2022-02-10T11:21:52.000Z",
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+            }
+        ],
+        "http://www.w3.org/ns/sosa/hasFeatureOfInterest": [
+            {
+                "@value": ""
+            }
+        ]
+    }
+]
