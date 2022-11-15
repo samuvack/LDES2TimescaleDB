@@ -3,7 +3,7 @@
 ### Starting a TimescaleDB docker (with promotheus, promscale, etc.)
 
 ```
-$ docker-compose up
+$ docker-compose up --build
 ```
 
 ## What is TimescaleDB?
