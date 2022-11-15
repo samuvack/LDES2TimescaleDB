@@ -23,12 +23,15 @@ services:
       - timescaledb
   
   timescaledb:
-    image: timescale/timescaledb-ha:pg14-latest
+    #image: timescale/timescaledb-ha:pg14-latest
+    build: ./timescaledb/
+    container_name: ldes-postgis
     ports:
       - 5432:5432/tcp
     environment:
       POSTGRES_PASSWORD: password
       POSTGRES_USER: postgres
+      POSTGRES_DB: water_quality
   
   prometheus:
     image: prom/prometheus:latest
