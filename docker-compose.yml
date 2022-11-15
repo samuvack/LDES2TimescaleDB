@@ -50,8 +50,8 @@ services:
   promscale:
     image: timescale/promscale:latest
     ports:
-      - 9201:9201/tcp
-      - 9202:9202/tcp
+      - 9002:9201/tcp
+      - 9003:9202/tcp
     restart: on-failure
     depends_on:
       - timescaledb

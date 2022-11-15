@@ -4,12 +4,15 @@ drop table if exists public.water_quality;
 CREATE TABLE IF NOT EXISTS public.water_quality
 (
     id character varying NOT NULL,
-    --owner_preferred_name character varying COLLATE pg_catalog."default",
-    madeBySensor text,
-    generatedattime TIMESTAMP WITHOUT TIME ZONE NOT NULL,
-    batterijniveau double precision,
-    temperature double precision,
-    conductivity double precision
+    "batterijniveau_value" double precision, 
+    "batterijniveau_date" date,
+    "batterijniveau_sensor" character varying,
+    "temperatuur_value" double precision,
+    "temperatuur_date" date,
+    "temperatuur_sensor" character varying,
+    "conductiviteit_value"  double precision,
+    "conductiviteit_date" date,
+    "conductiviteit_sensor"  character varying
 );
 
 
