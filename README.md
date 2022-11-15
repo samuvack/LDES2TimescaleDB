@@ -21,6 +21,9 @@ the [Timescale website](https://www.timescale.com).
 
 <img src="https://github.com/samuvack/TimescaleDB/blob/main/images/scale.svg" alt="Timescale" width="100%"/>
 
+Values (temperature, conductivity, and battery level) are inserted into the TimescaleDB
+![image](https://user-images.githubusercontent.com/15192194/201967409-3d6fb7b9-eea9-4e70-932c-1d7e02b24824.png)
+
 
 
 ## What is Prometheus?
