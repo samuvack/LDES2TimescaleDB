@@ -5,6 +5,11 @@
 ```
 $ docker-compose up --build
 ```
+### Starting Apache NIFI with .json file
+
+![image](https://user-images.githubusercontent.com/15192194/201967062-a702d354-c0d0-4859-9a9f-841113e70c0a.png)
+
+
 
 ## What is TimescaleDB?
 
