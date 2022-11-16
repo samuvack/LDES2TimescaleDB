@@ -7,6 +7,7 @@ $ docker-compose up --build
 ```
 ### Starting Apache NIFI with .json file
 
+![image](https://user-images.githubusercontent.com/15192194/202146312-56bc3ab8-c532-474a-a5c6-095cdf00d454.png)
 ![image](https://user-images.githubusercontent.com/15192194/201967062-a702d354-c0d0-4859-9a9f-841113e70c0a.png)
 
 Values (temperature, conductivity, and battery level) are inserted into the TimescaleDB
