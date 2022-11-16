@@ -9,6 +9,13 @@ volumes:
   nifi-logs:
   nifi-nars:
   nifi-conf:
+  grafana_data: {}
+
+networks:
+  front-tier:
+    driver: bridge
+  back-tier:
+    driver: bridge
 
 services:
   dba:
@@ -109,3 +116,26 @@ services:
       - NIFI_WORKFLOW_LISTEN_PORT=9005
       - NIFI_JVM_HEAP_INIT=8g
       - NIFI_JVM_HEAP_MAX=8g
+
+  grafana:
+#    image: stefanwalther/grafana
+    build:
+      context: ./
+      dockerfile: ./grafana/Dockerfile
+#    container_name: grafana
+    ports:
+      - 3000:3000
+    volumes:
+      - ./grafana/entrypoint.sh:/app/entrypoint.sh
+      - ./grafana/config/grafana.ini:/etc/grafana/grafana.ini
+      - ./grafana/config/dashboards:/var/lib/grafana/dashboards
+      - ./grafana/config/datasources:/etc/grafana/datasources
+      - ./grafana/config/plugins:/var/lib/grafana/plugins
+      - grafana_data:/var/lib/grafana
+    env_file:
+      - ./grafana/config.env
+    networks:
+      - back-tier
+      - front-tier
+#    entrypoint:
+#      - sh /app/entrypoint.sh
