@@ -4,8 +4,6 @@
   <img src="https://user-images.githubusercontent.com/15192194/202147884-ad0317a5-00dd-47df-b103-970584f801e0.png?raw=true" height=100/>
 </p>
 
-# LDES2TimescaleDB
-
 
 ### Starting a TimescaleDB docker (with promotheus, promscale, etc.)
 
