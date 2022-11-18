@@ -139,3 +139,22 @@ services:
       - front-tier
 #    entrypoint:
 #      - sh /app/entrypoint.sh
+
+  pgbackups:
+    container_name: Backup
+    image: prodrigestivill/postgres-backup-local
+    restart: always
+    volumes:
+      - ./backup:/backups
+    links:
+      - timescaledb:timescaledb
+    depends_on:
+      - timescaledb
+    environment:
+      - POSTGRES_HOST=TimescaleDB
+      - POSTGRES_DB=water_quality
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_EXTRA_OPTS=-Z9 --schema=public --blobs
+      - SCHEDULE=@every 0h30m00s
+      - BACKUP_KEEP_DAYS=1
