@@ -20,3 +20,8 @@ ALTER TABLE IF EXISTS public.water_quality OWNER to postgres;
 
 
 SELECT create_hypertable('public.water_quality', 'generatedattime');
+
+CREATE TABLE IF NOT EXISTS public.devices
+(
+    id character varying NOT NULL
+);
